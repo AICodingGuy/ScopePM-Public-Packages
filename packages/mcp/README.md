@@ -19,9 +19,54 @@ Add to your `.mcp.json` (project root or `~/.claude/.mcp.json`):
 }
 ```
 
+### Claude Desktop
+
+Add to `~/.claude/.mcp.json` (or your Claude Desktop MCP config file):
+
+```json
+{
+  "mcpServers": {
+    "scope": {
+      "command": "npx",
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+    }
+  }
+}
+```
+
 ### Cursor
 
 Add to `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "scope": {
+      "command": "npx",
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+    }
+  }
+}
+```
+
+### ChatGPT Desktop
+
+Use the same command pattern in your ChatGPT Desktop MCP config:
+
+```json
+{
+  "mcpServers": {
+    "scope": {
+      "command": "npx",
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+    }
+  }
+}
+```
+
+### Codex / other MCP clients
+
+If your environment supports a standard MCP config, use the same command:
 
 ```json
 {

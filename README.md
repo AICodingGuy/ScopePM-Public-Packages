@@ -25,7 +25,7 @@ Use it to:
 A hosted MCP proxy for ScopePM.
 
 Use it to:
-- connect Claude Code, Cursor, ChatGPT, and other MCP clients to the hosted ScopePM API
+- connect Claude Code, Claude Desktop, Codex, Cursor, ChatGPT Desktop, and other MCP clients to the hosted ScopePM API
 - expose ScopePM tools over stdio transport
 - verify API connectivity with the `connect` subcommand
 
@@ -44,6 +44,17 @@ scope --help
 npx @scope-pm/mcp --help
 npx @scope-pm/mcp connect --api-key sk_your_key
 ```
+
+## Supported client setups
+
+The public docs now include installation/configuration examples for:
+
+- Claude Code
+- Claude Desktop
+- Codex / Codex CLI-style MCP configuration
+- Cursor
+- ChatGPT Desktop
+- generic MCP clients
 
 ## Documentation
 

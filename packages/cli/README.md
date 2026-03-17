@@ -20,20 +20,23 @@ scope config list
 
 Configuration is stored in `~/.scope-pm/config.json`.
 
-## MCP Install (Claude/Cursor/ChatGPT)
+## MCP Install (Claude Code / Claude Desktop / Cursor / ChatGPT Desktop / Gemini)
 
 Write or update MCP client config in one command (merge-safe):
 
 ```bash
-# Claude Desktop (~/.claude/.mcp.json)
+# Claude Code or Claude Desktop (~/.claude/.mcp.json)
 npx @scope-pm/cli install
 
 # Project-local (.mcp.json)
 npx @scope-pm/cli install --target project
 
-# Cursor and ChatGPT
+# Cursor and ChatGPT Desktop
 npx @scope-pm/cli install --target cursor
 npx @scope-pm/cli install --target chatgpt
+
+# Gemini CLI
+npx @scope-pm/cli install --target gemini
 
 # All known targets at once
 npx @scope-pm/cli install --target all
@@ -205,3 +208,12 @@ scope query --status done --json
 ## License
 
 BUSL-1.1
+
+
+## Client Notes
+
+- `claude`: use for Claude Code and Claude Desktop style `.mcp.json` installs
+- `cursor`: writes `.cursor/mcp.json`
+- `chatgpt`: writes the ChatGPT Desktop MCP config path based on OS
+- `gemini`: writes the Gemini settings file path used by the installer
+- `project`: writes a local project `.mcp.json`
