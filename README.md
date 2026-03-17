@@ -1,22 +1,57 @@
 # ScopePM Public Packages
 
-Public distribution repository for the two installable ScopePM packages:
+Public distribution repository for the installable ScopePM developer tools.
+
+Packages in this repository:
 
 - `@scope-pm/cli`
 - `@scope-pm/mcp`
 
-This repo is intentionally separate from the private ScopePM product monorepo.
-It contains only the publishable client/proxy packages and the release workflow needed to ship them on npm.
+This repository is intentionally separate from the private ScopePM product monorepo.
+It contains only the publishable packages, package-focused documentation, and the release workflow required to publish them on npm.
 
-## Packages
+## What is included
 
 ### `@scope-pm/cli`
-Hosted REST CLI for ScopePM, including MCP installer/configuration helpers.
+A hosted REST CLI for ScopePM.
+
+Use it to:
+- inspect scope status
+- query and update work items
+- export scope data
+- install/update MCP configuration for local tools
 
 ### `@scope-pm/mcp`
-Hosted MCP proxy that exposes ScopePM tools over stdio and forwards them to the hosted API.
+A hosted MCP proxy for ScopePM.
 
-## Local Development
+Use it to:
+- connect Claude Code, Cursor, ChatGPT, and other MCP clients to the hosted ScopePM API
+- expose ScopePM tools over stdio transport
+- verify API connectivity with the `connect` subcommand
+
+## Quick install
+
+### CLI
+
+```bash
+npm install -g @scope-pm/cli
+scope --help
+```
+
+### MCP
+
+```bash
+npx @scope-pm/mcp --help
+npx @scope-pm/mcp connect --api-key sk_your_key
+```
+
+## Documentation
+
+- Installation guide: [`INSTALLATION.md`](./INSTALLATION.md)
+- Release and publish guide: [`RELEASE.md`](./RELEASE.md)
+- Private-to-public sync process: [`SYNC_FROM_PRIVATE.md`](./SYNC_FROM_PRIVATE.md)
+
+## Local development
 
 ```bash
 npm install
@@ -25,16 +60,20 @@ npm run typecheck
 npm run build
 ```
 
-## Release
+## Repository purpose
 
-The GitHub Actions workflow publishes both packages on version tags:
+This repository should contain only:
+- package source
+- tests
+- package documentation
+- release automation
 
-```bash
-git tag cli-v0.1.0
-git push origin cli-v0.1.0
+This repository should not contain:
+- the private ScopePM API server
+- the database layer of the private product monorepo
+- the web application
+- internal reports or internal operational documents
 
-git tag mcp-v0.1.0
-git push origin mcp-v0.1.0
-```
+## License
 
-Or publish both together with a manual workflow dispatch.
+BUSL-1.1
