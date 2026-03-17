@@ -104,7 +104,7 @@ export function buildRemoteMcpServerConfig(apiUrl: string, apiKey?: string): Mcp
   const normalizedApiUrl = normalizeApiUrl(apiUrl);
   return {
     command: 'npx',
-    args: ['@scope-pm/mcp', '--transport', 'http', '--api-url', normalizedApiUrl],
+    args: ['-y', '@scope-pm/mcp', '--transport', 'http', '--api-url', normalizedApiUrl],
     env: apiKey?.trim() ? { SCOPE_API_KEY: apiKey.trim() } : undefined,
   };
 }

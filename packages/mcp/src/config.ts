@@ -115,7 +115,7 @@ export function parseConfig(): ProxyConfig {
       `  --api-key sk_your_key\n` +
       `  or set SCOPE_API_KEY environment variable\n\n` +
       `Example:\n` +
-      `  npx @scope-pm/mcp --api-key sk_your_key\n\n` +
+      `  npx -y @scope-pm/mcp --transport http --api-key sk_your_key\n\n` +
       `Get your API key at https://scopepm.aicodingguy.com/settings/api-keys`,
     );
   }
@@ -135,8 +135,8 @@ export function printHelp(): void {
 @scope-pm/mcp - MCP proxy for the ScopePM REST API
 
 USAGE:
-  npx @scope-pm/mcp --transport http --api-key sk_your_key [--api-url https://api.aicodingguy.com]
-  npx @scope-pm/mcp connect --api-key sk_your_key [--api-url https://api.aicodingguy.com]
+  npx -y @scope-pm/mcp --transport http --api-key sk_your_key [--api-url https://api.aicodingguy.com]
+  npx -y @scope-pm/mcp connect --api-key sk_your_key [--api-url https://api.aicodingguy.com]
 
 OPTIONS:
   --api-key <key>   API key for authentication (required)
@@ -151,7 +151,7 @@ CONNECT CHECK:
   Use the \`connect\` subcommand to verify the API URL + API key pair before wiring
   the package into Claude/Cursor:
 
-    npx @scope-pm/mcp connect --api-key sk_your_key
+    npx -y @scope-pm/mcp connect --api-key sk_your_key
 
 CLAUDE CODE SETUP:
   Add to your .mcp.json:
@@ -159,7 +159,7 @@ CLAUDE CODE SETUP:
     "mcpServers": {
       "scope": {
         "command": "npx",
-        "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+        "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
       }
     }
   }
@@ -170,11 +170,11 @@ CURSOR SETUP:
     "mcpServers": {
       "scope": {
         "command": "npx",
-        "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+        "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
       }
     }
   }
 `);
 }
 
-export const VERSION = '0.1.0';
+export const VERSION = '0.1.1';

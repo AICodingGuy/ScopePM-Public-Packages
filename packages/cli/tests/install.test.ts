@@ -14,7 +14,7 @@ describe('install command helpers', () => {
   it('buildRemoteMcpServerConfig normalizes API URL and injects API key', () => {
     const config = buildRemoteMcpServerConfig('https://api.aicodingguy.com/', 'sk_test_123');
     expect(config.command).toBe('npx');
-    expect(config.args).toEqual(['@scope-pm/mcp', '--transport', 'http', '--api-url', 'https://api.aicodingguy.com']);
+    expect(config.args).toEqual(['-y', '@scope-pm/mcp', '--transport', 'http', '--api-url', 'https://api.aicodingguy.com']);
     expect(config.env).toEqual({ SCOPE_API_KEY: 'sk_test_123' });
   });
 

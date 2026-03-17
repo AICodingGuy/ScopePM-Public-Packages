@@ -8,7 +8,7 @@ export async function checkConnection(apiUrl: string, apiKey: string): Promise<{
       Authorization: `Bearer ${apiKey}`,
       'X-API-Key': apiKey,
       Accept: 'application/json',
-      'User-Agent': '@scope-pm/mcp/0.1.0',
+      'User-Agent': '@scope-pm/mcp/0.1.1',
     },
   });
 

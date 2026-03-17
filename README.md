@@ -41,8 +41,8 @@ scope --help
 ### MCP
 
 ```bash
-npx @scope-pm/mcp --help
-npx @scope-pm/mcp connect --api-key sk_your_key
+npx -y @scope-pm/mcp --help
+npx -y @scope-pm/mcp connect --api-key sk_your_key --api-url https://api.aicodingguy.com
 ```
 
 ## Supported client setups

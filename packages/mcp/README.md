@@ -1,6 +1,6 @@
 # @scope-pm/mcp
 
-A lightweight MCP (Model Context Protocol) proxy that connects AI coding assistants to the [ScopePM](https://brahma-mcp.com) REST API. Install it once and every MCP-compatible tool (Claude Code, Cursor, Windsurf, etc.) gets full access to your project scope.
+A lightweight MCP (Model Context Protocol) proxy that connects AI coding assistants to the [ScopePM](https://scopepm.aicodingguy.com) REST API. Install it once and every MCP-compatible tool (Claude Code, Cursor, Windsurf, etc.) gets full access to your project scope.
 
 ## Quick Start
 
@@ -13,7 +13,7 @@ Add to your `.mcp.json` (project root or `~/.claude/.mcp.json`):
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -28,7 +28,7 @@ Add to `~/.claude/.mcp.json` (or your Claude Desktop MCP config file):
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -43,7 +43,7 @@ Add to `.cursor/mcp.json`:
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -58,7 +58,7 @@ Use the same command pattern in your ChatGPT Desktop MCP config:
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -73,7 +73,7 @@ If your environment supports a standard MCP config, use the same command:
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -84,7 +84,7 @@ If your environment supports a standard MCP config, use the same command:
 Same pattern -- point the MCP client at:
 
 ```
-npx @scope-pm/mcp --api-key sk_your_key
+npx -y @scope-pm/mcp --transport http --api-key sk_your_key
 ```
 
 ### Connectivity Check
@@ -92,7 +92,7 @@ npx @scope-pm/mcp --api-key sk_your_key
 Before wiring the MCP server into your editor, you can verify the API URL + API key:
 
 ```bash
-npx @scope-pm/mcp connect --api-key sk_your_key
+npx -y @scope-pm/mcp connect --api-key sk_your_key
 ```
 
 ## Configuration
@@ -101,7 +101,7 @@ npx @scope-pm/mcp connect --api-key sk_your_key
 |---|---|---|---|
 | `--transport` | - | `http` | Transport mode. Only `http` is supported in the hosted proxy path. |
 | `--api-key` | `SCOPE_API_KEY` | (required) | Your ScopePM API key |
-| `--api-url` | `SCOPE_API_URL` | `https://api.brahma-mcp.com` | Base URL of the API |
+| `--api-url` | `SCOPE_API_URL` | `https://api.aicodingguy.com` | Base URL of the API |
 | `connect` | - | - | Verify that the API URL + API key can reach your ScopePM instance |
 | `--help` | | | Show help message |
 | `--version` | | | Show version number |
@@ -151,7 +151,7 @@ The proxy registers all ScopePM MCP tools:
 ## How It Works
 
 ```
-AI Assistant <--MCP/stdio--> @scope-pm/mcp <--HTTPS--> api.brahma-mcp.com
+AI Assistant <--MCP/stdio--> @scope-pm/mcp <--HTTPS--> api.aicodingguy.com
 ```
 
 1. The AI assistant sends MCP tool calls over stdio

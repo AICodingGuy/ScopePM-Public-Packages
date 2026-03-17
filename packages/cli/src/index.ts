@@ -38,7 +38,7 @@ export function createProgram(overrides?: {
   program
     .name('scope')
     .description('ScopePM CLI — manage project scope via the REST API')
-    .version('0.1.0')
+    .version('0.1.1')
     .option('--api-key <key>', 'API key for authentication')
     .option('--api-url <url>', 'API base URL')
     .option('--json', 'Output raw JSON instead of human-readable format');
