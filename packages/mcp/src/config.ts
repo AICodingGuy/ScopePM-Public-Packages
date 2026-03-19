@@ -3,6 +3,8 @@
  * No heavy dependencies — uses manual process.argv parsing.
  */
 
+import { createRequire } from 'node:module';
+
 export interface ProxyConfig {
   command: 'serve' | 'connect';
   apiKey: string;
@@ -177,4 +179,7 @@ CURSOR SETUP:
 `);
 }
 
-export const VERSION = '0.1.1';
+const require = createRequire(import.meta.url);
+const pkg = require('../package.json') as { version?: string };
+
+export const VERSION = pkg.version ?? '0.1.1';

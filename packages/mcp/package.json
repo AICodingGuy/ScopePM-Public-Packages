@@ -1,6 +1,6 @@
 {
   "name": "@scope-pm/mcp",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "ScopePM MCP proxy for routing MCP tool calls to the hosted API.",
   "type": "module",
   "bin": {
