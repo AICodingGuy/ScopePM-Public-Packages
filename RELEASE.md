@@ -36,15 +36,15 @@ Required npm permissions:
 ### CLI only
 
 ```bash
-git tag cli-v0.1.0
-git push origin cli-v0.1.0
+git tag cli-vX.Y.Z
+git push origin cli-vX.Y.Z
 ```
 
 ### MCP only
 
 ```bash
-git tag mcp-v0.1.0
-git push origin mcp-v0.1.0
+git tag mcp-vX.Y.Z
+git push origin mcp-vX.Y.Z
 ```
 
 ## Manual publish via workflow_dispatch

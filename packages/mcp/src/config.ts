@@ -117,7 +117,7 @@ export function parseConfig(): ProxyConfig {
       `  --api-key sk_your_key\n` +
       `  or set SCOPE_API_KEY environment variable\n\n` +
       `Example:\n` +
-      `  npx -y @scope-pm/mcp --transport http --api-key sk_your_key\n\n` +
+      `  npx @scope-pm/mcp --api-key sk_your_key\n\n` +
       `Get your API key at https://scopepm.aicodingguy.com/settings/api-keys`,
     );
   }
@@ -137,8 +137,8 @@ export function printHelp(): void {
 @scope-pm/mcp - MCP proxy for the ScopePM REST API
 
 USAGE:
-  npx -y @scope-pm/mcp --transport http --api-key sk_your_key [--api-url https://api.aicodingguy.com]
-  npx -y @scope-pm/mcp connect --api-key sk_your_key [--api-url https://api.aicodingguy.com]
+  npx @scope-pm/mcp --transport http --api-key sk_your_key [--api-url https://api.aicodingguy.com]
+  npx @scope-pm/mcp connect --api-key sk_your_key [--api-url https://api.aicodingguy.com]
 
 OPTIONS:
   --api-key <key>   API key for authentication (required)
@@ -153,7 +153,7 @@ CONNECT CHECK:
   Use the \`connect\` subcommand to verify the API URL + API key pair before wiring
   the package into Claude/Cursor:
 
-    npx -y @scope-pm/mcp connect --api-key sk_your_key
+    npx @scope-pm/mcp connect --api-key sk_your_key
 
 CLAUDE CODE SETUP:
   Add to your .mcp.json:
@@ -161,7 +161,7 @@ CLAUDE CODE SETUP:
     "mcpServers": {
       "scope": {
         "command": "npx",
-        "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
+        "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
       }
     }
   }
@@ -172,7 +172,7 @@ CURSOR SETUP:
     "mcpServers": {
       "scope": {
         "command": "npx",
-        "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
+        "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
       }
     }
   }
@@ -182,4 +182,4 @@ CURSOR SETUP:
 const require = createRequire(import.meta.url);
 const pkg = require('../package.json') as { version?: string };
 
-export const VERSION = pkg.version ?? '0.1.1';
+export const VERSION = pkg.version ?? '0.1.5';

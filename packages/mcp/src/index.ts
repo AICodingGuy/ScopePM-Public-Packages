@@ -7,8 +7,8 @@
  * ScopePM REST API. Runs over stdio transport.
  *
  * Usage:
- *   npx -y @scope-pm/mcp --transport http --api-key sk_your_key
- *   npx -y @scope-pm/mcp --transport http --api-key sk_your_key --api-url https://custom-api.example.com
+ *   npx @scope-pm/mcp --api-key sk_your_key
+ *   npx @scope-pm/mcp --api-key sk_your_key --api-url https://custom-api.example.com
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';

@@ -35,7 +35,7 @@ MCP clients typically launch it with `npx`.
 ### Quick connectivity check
 
 ```bash
-npx -y @scope-pm/mcp connect --api-key sk_your_api_key_here --api-url https://api.aicodingguy.com
+npx @scope-pm/mcp connect --api-key sk_your_api_key_here --api-url https://api.aicodingguy.com
 ```
 
 ## Client-specific setup
@@ -49,7 +49,7 @@ Project-local `.mcp.json` or `~/.claude/.mcp.json`:
   "mcpServers": {
     "scopepm": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-url", "https://api.aicodingguy.com", "--api-key", "sk_your_api_key_here"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_api_key_here"]
     }
   }
 }
@@ -68,7 +68,7 @@ Config example:
   "mcpServers": {
     "scopepm": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-url", "https://api.aicodingguy.com", "--api-key", "sk_your_api_key_here"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_api_key_here"]
     }
   }
 }
@@ -89,7 +89,7 @@ If your Codex environment reads a standard `.mcp.json`, use the same config as C
   "mcpServers": {
     "scopepm": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-url", "https://api.aicodingguy.com", "--api-key", "sk_your_api_key_here"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_api_key_here"]
     }
   }
 }
@@ -106,7 +106,7 @@ Add to `.cursor/mcp.json`:
   "mcpServers": {
     "scopepm": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-url", "https://api.aicodingguy.com", "--api-key", "sk_your_api_key_here"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_api_key_here"]
     }
   }
 }
@@ -133,7 +133,7 @@ Manual MCP config uses the same command pattern:
   "mcpServers": {
     "scopepm": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-url", "https://api.aicodingguy.com", "--api-key", "sk_your_api_key_here"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_api_key_here"]
     }
   }
 }
@@ -149,7 +149,7 @@ Typical config path resolution used by the CLI:
 Use the same command pattern:
 
 ```bash
-npx -y @scope-pm/mcp --transport http --api-key sk_your_api_key_here --api-url https://api.aicodingguy.com
+npx @scope-pm/mcp --transport http --api-key sk_your_api_key_here --api-url https://api.aicodingguy.com
 ```
 
 ## Supported environment variables

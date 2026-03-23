@@ -13,22 +13,7 @@ Add to your `.mcp.json` (project root or `~/.claude/.mcp.json`):
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
-    }
-  }
-}
-```
-
-### Claude Desktop
-
-Add to `~/.claude/.mcp.json` (or your Claude Desktop MCP config file):
-
-```json
-{
-  "mcpServers": {
-    "scope": {
-      "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -43,37 +28,7 @@ Add to `.cursor/mcp.json`:
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
-    }
-  }
-}
-```
-
-### ChatGPT Desktop
-
-Use the same command pattern in your ChatGPT Desktop MCP config:
-
-```json
-{
-  "mcpServers": {
-    "scope": {
-      "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
-    }
-  }
-}
-```
-
-### Codex / other MCP clients
-
-If your environment supports a standard MCP config, use the same command:
-
-```json
-{
-  "mcpServers": {
-    "scope": {
-      "command": "npx",
-      "args": ["-y", "@scope-pm/mcp", "--transport", "http", "--api-key", "sk_your_key"]
+      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -84,7 +39,7 @@ If your environment supports a standard MCP config, use the same command:
 Same pattern -- point the MCP client at:
 
 ```
-npx -y @scope-pm/mcp --transport http --api-key sk_your_key
+npx @scope-pm/mcp --api-key sk_your_key
 ```
 
 ### Connectivity Check
@@ -92,7 +47,7 @@ npx -y @scope-pm/mcp --transport http --api-key sk_your_key
 Before wiring the MCP server into your editor, you can verify the API URL + API key:
 
 ```bash
-npx -y @scope-pm/mcp connect --api-key sk_your_key
+npx @scope-pm/mcp connect --api-key sk_your_key
 ```
 
 ## Configuration
