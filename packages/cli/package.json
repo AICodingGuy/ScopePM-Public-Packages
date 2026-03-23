@@ -1,6 +1,6 @@
 {
   "name": "@scope-pm/cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ScopePM CLI — manage project scope via the hosted REST API.",
   "type": "module",
   "main": "./dist/index.js",

@@ -39,6 +39,8 @@ interface InstallCommandOptions {
   dryRun?: boolean;
 }
 
+const DEFAULT_MCP_PACKAGE_SPEC = '@scope-pm/mcp@0.1.6';
+
 export function isInstallTarget(value: string): value is Exclude<InstallTarget, 'all'> {
   return value === 'project' || value === 'claude' || value === 'cursor' || value === 'gemini' || value === 'chatgpt';
 }
@@ -104,7 +106,7 @@ export function buildRemoteMcpServerConfig(apiUrl: string, apiKey?: string): Mcp
   const normalizedApiUrl = normalizeApiUrl(apiUrl);
   return {
     command: 'npx',
-    args: ['-y', '@scope-pm/mcp', '--transport', 'http', '--api-url', normalizedApiUrl],
+    args: [DEFAULT_MCP_PACKAGE_SPEC, '--api-url', normalizedApiUrl],
     env: apiKey?.trim() ? { SCOPE_API_KEY: apiKey.trim() } : undefined,
   };
 }

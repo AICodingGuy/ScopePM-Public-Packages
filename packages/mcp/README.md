@@ -13,7 +13,7 @@ Add to your `.mcp.json` (project root or `~/.claude/.mcp.json`):
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["@scope-pm/mcp@0.1.6", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -28,7 +28,7 @@ Add to `.cursor/mcp.json`:
   "mcpServers": {
     "scope": {
       "command": "npx",
-      "args": ["@scope-pm/mcp", "--api-key", "sk_your_key"]
+      "args": ["@scope-pm/mcp@0.1.6", "--api-key", "sk_your_key"]
     }
   }
 }
@@ -39,7 +39,7 @@ Add to `.cursor/mcp.json`:
 Same pattern -- point the MCP client at:
 
 ```
-npx @scope-pm/mcp --api-key sk_your_key
+npx @scope-pm/mcp@0.1.6 --api-key sk_your_key
 ```
 
 ### Connectivity Check
@@ -47,7 +47,7 @@ npx @scope-pm/mcp --api-key sk_your_key
 Before wiring the MCP server into your editor, you can verify the API URL + API key:
 
 ```bash
-npx @scope-pm/mcp connect --api-key sk_your_key
+npx @scope-pm/mcp@0.1.6 connect --api-key sk_your_key
 ```
 
 ## Configuration

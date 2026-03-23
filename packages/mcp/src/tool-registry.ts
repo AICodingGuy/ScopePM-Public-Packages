@@ -11,6 +11,7 @@
  */
 import { TOOL_DEFINITIONS } from './tool-definitions.generated.js';
 import { EXPLICIT_TOOL_REGISTRY } from './tool-registry-explicit.js';
+import { VERSION } from './config.js';
 
 export interface ToolRegistryEntry {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
@@ -208,7 +209,7 @@ async function callEndpoint(
     Authorization: `Bearer ${apiKey}`,
     'X-API-Key': apiKey,
     Accept: 'application/json',
-    'User-Agent': '@scope-pm/mcp/0.1.1',
+    'User-Agent': `@scope-pm/mcp/${VERSION}`,
   };
 
   if (body !== undefined) headers['Content-Type'] = 'application/json';
