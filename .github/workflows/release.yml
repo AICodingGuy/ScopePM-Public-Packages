@@ -4,9 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: "Package target (cli, mcp, all)"
+        description: "Package target (verify, cli, mcp, all)"
         required: true
         default: "all"
+        type: choice
+        options:
+          - verify
+          - cli
+          - mcp
+          - all
   push:
     tags:
       - "cli-v*.*.*"
@@ -20,46 +26,49 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
           cache: npm
-      - run: npm install
+          cache-dependency-path: package-lock.json
+      - run: npm ci
       - run: npm run test
       - run: npm run typecheck
       - run: npm run build
 
   publish-cli:
-    if: github.event_name == 'workflow_dispatch' && (inputs.target == 'cli' || inputs.target == 'all') || startsWith(github.ref_name, 'cli-v')
+    if: (github.event_name == 'workflow_dispatch' && (inputs.target == 'cli' || inputs.target == 'all')) || startsWith(github.ref_name, 'cli-v')
     needs: build-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
           cache: npm
-      - run: npm install
+          cache-dependency-path: package-lock.json
+      - run: npm ci
       - run: npm -w @scope-pm/cli run build
       - run: npm publish --access public --provenance --workspace @scope-pm/cli
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-mcp:
-    if: github.event_name == 'workflow_dispatch' && (inputs.target == 'mcp' || inputs.target == 'all') || startsWith(github.ref_name, 'mcp-v')
+    if: (github.event_name == 'workflow_dispatch' && (inputs.target == 'mcp' || inputs.target == 'all')) || startsWith(github.ref_name, 'mcp-v')
     needs: build-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
           cache: npm
-      - run: npm install
+          cache-dependency-path: package-lock.json
+      - run: npm ci
       - run: npm -w @scope-pm/mcp run build
       - run: npm publish --access public --provenance --workspace @scope-pm/mcp
         env:
